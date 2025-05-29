@@ -1,0 +1,351 @@
+/* Basic Reset & Helper */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font_1, Arial, Helvetica, sans-serif);
+    /* Use Wix font variable or a fallback */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+/* Ensure images scale within their containers */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Remove extra space below images */
+}
+
+/* Generic helper for full width elements on mobile */
+.full-width-mobile {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    left: 0 !important;
+    padding-left: 15px !important;
+    /* Add some padding */
+    padding-right: 15px !important;
+}
+
+
+/* Header Adjustments */
+#SITE_HEADER ._C0cVf,
+#SITE_HEADER .U4Bvut,
+#SITE_HEADER .G5K6X8,
+#SITE_HEADER .CJF7A2,
+#SITE_HEADER [data-mesh-id="SITE_HEADERinlineContent-gridContainer"] {
+    min-width: 0;
+    /* Allow shrinking */
+}
+
+/* Footer Adjustments */
+#SITE_FOOTER ._C0cVf,
+#SITE_FOOTER .U4Bvut,
+#SITE_FOOTER .G5K6X8,
+#SITE_FOOTER .CJF7A2,
+#SITE_FOOTER [data-mesh-id="SITE_FOOTERinlineContent-gridContainer"] {
+    min-width: 0;
+    /* Allow shrinking */
+}
+
+/* PAGES_CONTAINER should also not have a min-width that prevents shrinking */
+#PAGES_CONTAINER {
+    min-width: 0;
+}
+
+
+/* Tablet and Smaller Desktop */
+@media (max-width: 1024px) {
+    :root {
+        --site-width: 90%;
+        /* Make site width more fluid */
+    }
+
+    /* Adjust font sizes slightly if needed */
+    .font_4 {
+        /* Example */
+        font-size: 28px !important;
+    }
+
+    .font_7 {
+        /* Example */
+        font-size: 18px !important;
+    }
+
+    /* Column strip items - allow them to wrap if space is tight, or adjust basis */
+    .CohWsy>.V5AUxf {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        column-gap: 15px !important;
+        /* Reduce gap */
+    }
+}
+
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    :root {
+        --site-width: 100%;
+        /* Full width for mobile */
+    }
+
+    /* --- Header --- */
+    #SITE_HEADER [data-mesh-id="SITE_HEADERinlineContent-gridContainer"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    #SITE_HEADER [data-mesh-id="SITE_HEADERinlineContent-gridContainer"]>[id^="comp-lmoui0gd"] {
+        /* Logo */
+        position: relative !important;
+        margin: 10px auto !important;
+        left: auto !important;
+        width: 180px !important;
+        /* Adjust logo size for mobile */
+        height: auto !important;
+    }
+
+    #SITE_HEADER #comp-ifgtula7 {
+        /* Menu container */
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        margin: 10px 0 0 0 !important;
+    }
+
+    #SITE_HEADER #comp-ifgtula7 ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+        /* Remove default ul padding */
+    }
+
+    #SITE_HEADER #comp-ifgtula7 li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        /* Spacing between menu items */
+    }
+
+    #SITE_HEADER #comp-ifgtula7 li a {
+        padding: 10px;
+        display: block;
+        /* Make entire area clickable */
+        width: 100%;
+    }
+
+    #SITE_HEADER #comp-ifgtula7 button._pfxlW {
+        /* Hide dropdown arrow for stacked menu */
+        display: none !important;
+    }
+
+
+    /* --- Main Content Sections (Strips/Columns) --- */
+    /* This targets the flex container within column strips */
+    .CohWsy>.V5AUxf {
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 15px !important;
+        /* Add horizontal padding to content inside columns */
+    }
+
+    .wixui-column-strip__column {
+        width: 100% !important;
+        min-width: 0 !important;
+        /* Override min-width from Wix */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 20px !important;
+        /* Space between stacked columns */
+        padding: 0 !important;
+        /* Reset padding if Wix adds it */
+    }
+
+    .wixui-column-strip__column:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    /* Make images within these columns scale nicely */
+    .wixui-column-strip__column .bgImage img {
+        object-position: center center !important;
+        /* Ensure image is centered if it's a background fill */
+    }
+
+    /* Adjust text content within sections */
+    .HcOXKn h4,
+    .HcOXKn .font_4 {
+        /* Headings */
+        font-size: 24px !important;
+        /* Example: reduce font size */
+        line-height: 1.3em !important;
+    }
+
+    .HcOXKn p,
+    .HcOXKn .font_7 {
+        /* Paragraphs */
+        font-size: 16px !important;
+        /* Example: reduce font size */
+        line-height: 1.5em !important;
+    }
+
+    /* Buttons within sections */
+    .FubTgk {
+        /* Button wrapper */
+        width: auto !important;
+        /* Allow button to size to content or be styled */
+        max-width: 280px;
+        /* Prevent overly wide buttons */
+        margin: 20px auto 0 auto !important;
+        /* Center button and add top margin */
+        display: block !important;
+        /* Ensure margin auto works */
+    }
+
+    .FubTgk .uDW_Qe {
+        /* Actual button */
+        padding: 12px 20px !important;
+        /* Adjust padding for mobile */
+        font-size: 16px !important;
+        width: 100%;
+        /* Make button full width of its container */
+    }
+
+    /* Specific section adjustments if needed by ID */
+    #comp-l9qzgq48,
+    #comp-l9r01eju,
+    #comp-l9r0m1yp,
+    #comp-l9r0mgkx,
+    #comp-l9r2t8c2,
+    #comp-l9r2teq7,
+    #comp-l9r0iudc,
+    #comp-l9r0jbin {
+        /* Text content columns */
+        padding: 20px 0 !important;
+        /* Add some vertical padding */
+    }
+
+    #comp-l9qzgq4m,
+    #comp-l9r01ek7,
+    #comp-l9r0m1z2,
+    #comp-l9r0mgl3,
+    #comp-l9r2t8cd,
+    #comp-l9r2teqg,
+    #comp-l9r0iudp,
+    #comp-l9r0jbiu {
+        /* Main titles in sections */
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* --- Footer --- */
+    #SITE_FOOTER [data-mesh-id="SITE_FOOTERinlineContent-gridContainer"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px !important;
+    }
+
+    #comp-ifqtfs8a {
+        /* Footer column strip */
+        min-width: 0 !important;
+        /* Remove min-width */
+    }
+
+    #mediajcabbevo11 {
+        min-width: 0 !important;
+        /* Remove min-width */
+    }
+
+
+    #comp-ifqtfs8k {
+        /* Form container in footer */
+        width: 100% !important;
+        max-width: 400px;
+        /* Limit form width on mobile */
+        margin: 0 auto 20px auto !important;
+        /* Center and add bottom margin */
+        left: auto !important;
+        padding: 20px !important;
+    }
+
+    #comp-ifqtfs8k [data-mesh-id="comp-ifqtfs8kinlineContent-gridContainer"]>[id^="comp-ifqtfs8m"] {
+        /* Form Title */
+        margin: 0 0 15px 0 !important;
+        left: auto !important;
+        text-align: center;
+    }
+
+    #comp-ifqtfs8k [data-mesh-id="comp-ifqtfs8kinlineContent-gridContainer"]>[id^="comp-ifqtfs8q1"] {
+        /* Form Separator line */
+        margin: 0 auto 20px auto !important;
+        /* Center and add bottom margin */
+        left: auto !important;
+    }
+
+    #comp-ifqtfs8k [data-mesh-id="comp-ifqtfs8kinlineContent-gridContainer"]>[id^="comp-ifqyiqxm"] {
+        /* Form fields container */
+        width: 100% !important;
+        margin: 0 !important;
+        left: auto !important;
+    }
+
+    #comp-kl0aicgu {
+        /* The form itself */
+        width: 100% !important;
+    }
+
+    .wixui-text-input,
+    .wixui-text-box {
+        /* Form input fields */
+        width: 100% !important;
+    }
+
+    #comp-kl0aick6 {
+        /* Form submit button container */
+        left: auto !important;
+        margin: 20px auto 0 auto !important;
+        width: 100% !important;
+        max-width: 200px;
+        /* Limit button width */
+    }
+
+    #comp-igw7v8qn {
+        /* Copyright text */
+        margin: 20px 0 10px 0 !important;
+        left: auto !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    #comp-ihdezc6n2 {
+        /* Social bar */
+        margin: 0 auto !important;
+        left: auto !important;
+        justify-content: center !important;
+        /* If it's a flex container */
+    }
+
+    #comp-ihdezc6n2 ul {
+        justify-content: center;
+    }
+
+    /* General cleanup for positioned elements on mobile */
+    [data-mesh-id$="gridContainer"]>[id^="comp-"] {
+        position: relative !important;
+        /* Try to override absolute positioning */
+        left: auto !important;
+        top: auto !important;
+        /* Also reset top */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        /* Add !important judiciously, only if necessary to override Wix styles */
+    }
+}

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caroline Serra Design - Graphisme et décoration</title>
+    <meta name="description"
+        content="Caroline Serra Design pour vos affiches, flyers, logos, sites internet. N'hésitez pas à me consulter également pour vos projets de décoration ou vente d'appartement ou maison nécessitant du home staging.">
+    <style>
+        /* Basic Reset & Globals */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+            /* Add some horizontal padding to container */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 0.8em;
+            color: #2c3e50;
+        }
+
+        h2 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 1.5em;
+        }
+
+
+        a {
+            color: #b03737;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: rgba(170, 180, 139, 0.9);
+            /* Slightly less transparent */
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            /* Align logo and nav/burger */
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            /* Adjusted for better balance */
+        }
+
+        .main-nav {
+            position: relative;
+            /* For potential absolute positioning of dropdown */
+        }
+
+        .nav-toggle {
+            display: block;
+            /* Show by default on mobile */
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: #000;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: none;
+            /* Hidden by default on mobile */
+            flex-direction: column;
+            position: absolute;
+            /* For dropdown effect */
+            top: 100%;
+            /* Position below the header */
+            right: 0;
+            background-color: rgba(170, 180, 139, 0.95);
+            /* Match header */
+            width: 250px;
+            /* Adjust as needed */
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .main-nav ul.nav-active {
+            display: flex;
+            /* Show when active */
+        }
+
+        .main-nav ul li {
+            width: 100%;
+            text-align: left;
+        }
+
+        .main-nav ul li a {
+            display: block;
+            color: #000;
+            font-size: 1em;
+            padding: 10px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .main-nav ul li a:hover,
+        .main-nav ul li a.active {
+            background-color: #b03737;
+            color: white;
+            text-decoration: none;
+        }
+
+
+        /* Sections (styles from previous example, largely unchanged) */
+        .content-section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: #eef2e2;
+        }
+
+        .section-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-image,
+        .section-text {
+            flex: 1;
+        }
+
+        .section-image img {
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .section-text p {
+            margin-bottom: 1em;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #aab48b;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background-color: #98a378;
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #2f2e2e;
+            color: #f4f4f4;
+            padding: 40px 0;
+        }
+
+        .contact-section h2,
+        .contact-section h4 {
+            color: #fff;
+        }
+
+        .contact-form-placeholder {
+            background-color: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .contact-form-placeholder p {
+            margin-bottom: 15px;
+        }
+
+        .contact-form-placeholder a.btn {
+            background-color: #4f4e4e;
+            color: white;
+        }
+
+        .contact-form-placeholder a.btn:hover {
+            background-color: #666;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #2f2e2e;
+            color: #ccc;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        .social-links a img {
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            display: inline-block;
+        }
+
+        .social-links {
+            margin-bottom: 10px;
+        }
+
+
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+                /* Hide hamburger on desktop */
+            }
+
+            .main-nav ul {
+                display: flex !important;
+                /* Always show on desktop, !important to override JS inline style if any */
+                flex-direction: row;
+                position: static;
+                /* Revert from absolute */
+                background-color: transparent;
+                width: auto;
+                border-top: none;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .main-nav ul li {
+                width: auto;
+                /* Revert from 100% */
+                margin: 0 8px;
+                /* Spacing between items */
+            }
+
+            .main-nav ul li:last-child {
+                margin-right: 0;
+            }
+
+            .main-nav ul li a {
+                padding: 8px 12px;
+                /* Adjust padding for desktop */
+                font-size: 0.9em;
+            }
+
+            .section-grid {
+                flex-direction: row;
+            }
+
+            .section-grid.image-left .section-image {
+                order: 1;
+            }
+
+            .section-grid.image-left .section-text {
+                order: 2;
+            }
+
+            .section-grid.image-right .section-image {
+                order: 2;
+            }
+
+            .section-grid.image-right .section-text {
+                order: 1;
+            }
+
+            .section-text {
+                text-align: left;
+                padding: 0 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <img src="https://static.wixstatic.com/media/c71b30_1f17dece8521439a9f35aa2961f71620~mv2.png/v1/fill/w_207,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_1f17dece8521439a9f35aa2961f71620~mv2.png"
+                        alt="Caroline Serra Design Logo">
+                </a>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                    ☰ <!-- Hamburger Icon -->
+                </button>
+                <ul>
+                    <li><a href="#home" class="active">ACCUEIL</a></li>
+                    <!-- <li><a href="#affiches">AFFICHES</a></li> -->
+                    <!-- <li><a href="#dossiers-presse">DOSSIERS DE PRESSE</a></li> -->
+                    <li><a href="#art">ART</a></li>
+                    <li><a href="#packaging">PACKAGING</a></li>
+                    <li><a href="#logos">LOGOS</a></li>
+                    <!-- <li><a href="#disques-dvd">DISQUES ET DVD</a></li> -->
+                    <li><a href="#sites">SITES</a></li>
+                    <li><a href="#deco">DÉCO</a></li>
+                    <!-- <li><a href="#biographie">BIOGRAPHIE</a></li> -->
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="content-section">
+            <div class="container">
+                <div class="section-grid image-left">
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_8c31cd4426c14cc49d198e4019dbd41f~mv2.jpg/v1/fill/w_345,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_8c31cd4426c14cc49d198e4019dbd41f~mv2.jpg"
+                            alt="Cinéma">
+                    </div>
+                    <div class="section-text">
+                        <h4>CINÉMA</h4>
+                        <p>Création et adaptation d'affiches. Dossiers de presse. Promotion : encarts publicitaires,
+                            invitations, supports spéciaux...<br>
+                            <strong>Clients : EuropaCorp, Sony, SND, Pathé, UGC...</strong>
+                        </p>
+                        <a href="#affiches" class="btn">VOIR</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="spectacles" class="content-section">
+            <div class="container">
+                <div class="section-grid image-right">
+                    <div class="section-text">
+                        <h4>SPECTACLES</h4>
+                        <p>Création d'affiches, DVD. Promotion : encarts publicitaires, invitations, supports
+                            spéciaux...<br>
+                            <strong>Festivals : Marrakech du Rire, Montreux Comedy Festival, Echoooes, Rire en
+                                Vignes</strong><br>
+                            <strong>Artistes : Jamel Comedy Club, Jean-Luc Lemoine, Audrey Lamy, Michel Leeb, Voca
+                                People, Messmer...</strong><br>
+                            <strong>Comédies musicales : Raiponce</strong>
+                        </p>
+                        <a href="#affiches" class="btn">VOIR</a>
+                    </div>
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_2fd84fdc748f49858e1d92fd53847d4a~mv2.jpg/v1/fill/w_345,h_448,al_t,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_2fd84fdc748f49858e1d92fd53847d4a~mv2.jpg"
+                            alt="Spectacles">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sites" class="content-section">
+            <div class="container">
+                <div class="section-grid image-left">
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_539067d7961847fb87b6f47bcc5705be~mv2.jpg/v1/fill/w_345,h_420,al_t,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_539067d7961847fb87b6f47bcc5705be~mv2.jpg"
+                            alt="Sites Internet">
+                    </div>
+                    <div class="section-text">
+                        <h4>SITES</h4>
+                        <p>Création de sites (vitrines ou e-commerce).<br>
+                            <strong>Clients : restaurants, commerces, artisans, médical...</strong>
+                        </p>
+                        <a href="#sites" class="btn">VOIR</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="packaging" class="content-section">
+            <div class="container">
+                <div class="section-grid image-right">
+                    <div class="section-text">
+                        <h4>PACKAGING</h4>
+                        <p>Création de packagings et de nombreux supports.<br>
+                            <strong>Qiriness </strong>(produits de beauté)<strong>, Yvan & Grégory
+                            </strong>(alimentaire),<br>
+                            <strong>Maison Cartini - Fil'O Glaces </strong>(Artisan glacier)<strong>...</strong>
+                        </p>
+                        <a href="#packaging" class="btn">VOIR</a>
+                    </div>
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_4ee43824fd2549a182442fd8a36925bc~mv2.png/v1/fill/w_345,h_448,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_4ee43824fd2549a182442fd8a36925bc~mv2.png"
+                            alt="Packaging">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="logos" class="content-section">
+            <div class="container">
+                <div class="section-grid image-left">
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_4c71cacd7a494c71b88f58a33d9c5733~mv2.jpg/v1/fill/w_345,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_4c71cacd7a494c71b88f58a33d9c5733~mv2.jpg"
+                            alt="Identité Graphique - Logos">
+                    </div>
+                    <div class="section-text">
+                        <h4>IDENTITÉ GRAPHIQUE - LOGOS</h4>
+                        <p><strong>Festivals, alimentaire, PME et artisans, dentistes...</strong></p>
+                        <a href="#logos" class="btn">VOIR</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="deco" class="content-section">
+            <div class="container">
+                <div class="section-grid image-right">
+                    <div class="section-text">
+                        <h4>ARCHITECTURE (3D) et DÉCORATION</h4>
+                        <p>Création de visuels avec mise en 3D. Conseils en agencement et couleurs.<br>
+                            <strong>Clients : Pierre Cardin, particuliers...</strong>
+                        </p>
+                        <a href="#deco" class="btn">VOIR</a>
+                    </div>
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_8d531a38c166402bba862ce43f807ffc~mv2.jpg/v1/fill/w_345,h_448,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_8d531a38c166402bba862ce43f807ffc~mv2.jpg"
+                            alt="Architecture et Décoration">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="art" class="content-section">
+            <div class="container">
+                <div class="section-grid image-left">
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_c29a3d1713014b2bbeaae6267107e226~mv2.jpg/v1/fill/w_329,h_401,al_c,lg_1,q_80,enc_avif,quality_auto/c71b30_c29a3d1713014b2bbeaae6267107e226~mv2.jpg"
+                            alt="Art">
+                    </div>
+                    <div class="section-text">
+                        <h4>ART</h4>
+                        <p>Invitations et dossiers de presse.<br>
+                            <strong>Clients : La Sauvage Compagnie, Galerie Mark Hashem Paris...</strong>
+                        </p>
+                        <a href="#dossiers-presse" class="btn">VOIR</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="associatif" class="content-section">
+            <div class="container">
+                <div class="section-grid image-right">
+                    <div class="section-text">
+                        <h4>ASSOCIATIF</h4>
+                        <p>Création d'affiches et campagnes promotionnelles.<br>
+                            <strong>Association de commerçants, artisans et créateurs Les Vitrines de
+                                Carqueiranne</strong><br>
+                            <strong>Rotary Club Solliès-Vallée du Gapeau, Rotary-Club La Garde...</strong>
+                        </p>
+                        <a href="#affiches" class="btn">VOIR</a>
+                    </div>
+                    <div class="section-image">
+                        <img src="https://static.wixstatic.com/media/c71b30_ba761d3c9953408eab97cd6e40ed6466~mv2.jpg/v1/fill/w_345,h_448,al_t,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c71b30_ba761d3c9953408eab97cd6e40ed6466~mv2.jpg"
+                            alt="Associatif">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>CONTACTEZ CAROLINE SERRA DESIGN</h2>
+                <div class="contact-form-placeholder">
+                    <h4>Formulaire de Contact</h4>
+                    <p>Pour toute demande, merci d'envoyer un email à :</p>
+                    <p><a href="mailto:contact@carolineserra.fr"
+                            style="color:#b03737; font-weight:bold;">contact@carolineserra.fr</a></p>
+                    <p>Ou utilisez le bouton ci-dessous :</p>
+                    <a href="mailto:contact@carolineserra.fr?subject=Demande%20de%20renseignements%20via%20le%20site"
+                        class="btn">Envoyer un Email</a>
+                    <p style="font-size:0.8em; margin-top:20px;">(Les champs originaux étaient : Nom Prénom*, Email*,
+                        Objet*, Message)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/CarolineSerraDeco/" target="_blank"
+                    aria-label="Facebook - White Circle">
+                    <img alt="Facebook - White Circle"
+                        src="https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_40,h_40,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e0678ef25486466ba65ef6ad47b559e1.png">
+                </a>
+            </div>
+            <p>© 2023 Caroline Serra - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const navToggle = document.getElementById('navToggle');
+        const mainNavUl = document.querySelector('#mainNav ul');
+
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            mainNavUl.classList.toggle('nav-active');
+            navToggle.innerHTML = mainNavUl.classList.contains('nav-active') ? '✕' : '☰'; // Toggle between X and Hamburger
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mainNav ul a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) { // Only if mobile menu is active
+                    mainNavUl.classList.remove('nav-active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '☰';
+                }
+            });
+        });
+
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate offset for sticky header
+                    const headerOffset = document.querySelector('.site-header').offsetHeight + 10; // 10px extra padding
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        const navLinks = document.querySelectorAll('.main-nav ul a');
+        const sections = document.querySelectorAll('main section');
+        const headerHeight = document.querySelector('.site-header').offsetHeight;
+
+
+        function changeNavActive() {
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 50; // Adjusted offset
+                if (window.pageYOffset >= sectionTop) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+            // If no section is "active" (e.g., at the very top or bottom out of range), default to home
+            if (!currentSectionId && navLinks.length > 0 && navLinks[0].getAttribute('href') === '#home') {
+                navLinks[0].classList.add('active');
+            }
+        }
+
+        window.addEventListener('scroll', changeNavActive);
+        document.addEventListener('DOMContentLoaded', changeNavActive); // Initial check
+
+    </script>
+
+</body>
+
+</html>
